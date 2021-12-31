@@ -2,7 +2,7 @@ name: ccy
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 国际标准时间
+    - cron: "08 03 * * *" # 国际标准时间
 
 jobs:
   send:
