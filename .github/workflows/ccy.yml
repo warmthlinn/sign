@@ -8,10 +8,14 @@ jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      # 检出推送的代码
+      - name: Checkout
+        uses: actions/checkout@v2
+      # 安装node
       - uses: actions/setup-node@v1
-      - name: Run Project
-      with:
+      
+      - name: Deploy
+        env:
           AID: ${{secrets.AID}}
           UUID: ${{secrets.UUID}}
           SIGNATURE: ${{secrets.SIGNATURE}}
