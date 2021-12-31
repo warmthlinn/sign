@@ -16,7 +16,7 @@ jobs:
         - uses: actions/setup-node@v1
         # 安装项目依赖
         - name: Install Dependencies
-          env:
+          with:
             AID: ${{secrets.AID}}
             UUID: ${{secrets.UUID}}
             SIGNATURE: ${{secrets.SIGNATURE}}
