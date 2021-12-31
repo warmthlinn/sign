@@ -1,4 +1,4 @@
-name: ccy-helper
+name: ccy
 
 on:
   schedule:
@@ -7,18 +7,19 @@ on:
 jobs:
   send:
     runs-on: ubuntu-latest
+    name: Deploy
     steps:
-      # 检出推送的代码
-      - name: Checkout
-        uses: actions/checkout@v2
-      # 安装node
-      - uses: actions/setup-node@v1
-      
-      - name: Deploy
-        env:
-          AID: ${{secrets.AID}}
-          UUID: ${{secrets.UUID}}
-          SIGNATURE: ${{secrets.SIGNATURE}}
-          COOKIE: ${{secrets.COOKIE}}
-          PUSHTOEKN: ${{secrets.PUSHTOEKN}}
-        run: npm install && npm run server
+        # 检出推送的代码
+        - name: Checkout
+          uses: actions/checkout@v2
+        # 安装node
+        - uses: actions/setup-node@v1
+        # 安装项目依赖
+        - name: Install Dependencies
+          env:
+            AID: ${{secrets.AID}}
+            UUID: ${{secrets.UUID}}
+            SIGNATURE: ${{secrets.SIGNATURE}}
+            COOKIE: ${{secrets.COOKIE}}
+            PUSHTOEKN: ${{secrets.PUSHTOEKN}}
+          run: npm install && npm run server
