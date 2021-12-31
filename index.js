@@ -24,3 +24,4 @@ function init() {
   /** 触发掘金签到 */
   [userList].forEach(item => new JueJinSignIn(item))
 }
+// 更新？？？
