@@ -1,0 +1,20 @@
+name: ccy-helper
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 国际标准时间
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Run Project
+      with:
+          AID: ${{secrets.AID}}
+          UUID: ${{secrets.UUID}}
+          SIGNATURE: ${{secrets.SIGNATURE}}
+          COOKIE: ${{secrets.COOKIE}}
+          PUSHTOEKN: ${{secrets.PUSHTOEKN}}
+        run: npm install && npm run server
